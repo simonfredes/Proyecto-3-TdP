@@ -1,7 +1,7 @@
 package Visitor;
 
 import Logica.Jugador;
-import Logica.Premio;
+import Premio.Premio;
 
 public class Visitor_premio extends Visitor {
 	protected Premio p;

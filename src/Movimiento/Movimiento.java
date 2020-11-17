@@ -1,5 +1,7 @@
 package Movimiento;
 
-public class Movimiento {
+public abstract class Movimiento {
 
+	
+	public abstract void mover();
 }

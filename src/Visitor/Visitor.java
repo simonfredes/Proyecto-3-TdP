@@ -2,13 +2,13 @@ package Visitor;
 
 import Logica.Alpha;
 import Logica.Beta;
-import Logica.Efecto_temporal;
 import Logica.Jugador;
-import Logica.Objeto_precioso;
 import Logica.Particula;
-import Logica.Premio;
 import Logica.Proyectil_sanitario;
 import Logica.Proyectil_sanitario_premio;
+import Premio.Efecto_temporal;
+import Premio.Objeto_precioso;
+import Premio.Premio;
 
 public abstract class Visitor {
 	public void visit_alpha(Alpha a) {}

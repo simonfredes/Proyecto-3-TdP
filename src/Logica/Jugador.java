@@ -1,13 +1,24 @@
 package Logica;
 
-public class Jugador extends Personaje{
-	
+import javax.swing.ImageIcon;
+
+import Grafico.Grafico;
+import Grafico.GraficoJugador;
+import Premio.Premio;
+
+public class Jugador extends Personaje {
+
 	protected Arma arma;
-	
+	protected int coordenadaX;
+	protected int coordenadaY;
+	protected Premio premio;
+
 	public Jugador() {
+		this.imagen = new GraficoJugador();
 		carga_viral = 0;
+		coordenadaX = 200;
 	}
-     
+
 	@Override
 	public boolean esta_infectado() {
 		boolean esta_inf = false;
@@ -17,14 +28,33 @@ public class Jugador extends Personaje{
 		return esta_inf;
 	}
 
+	public int getX() {
+		return coordenadaX;
+	}
+
 	@Override
 	public void recibir_danio(float d) {
 		carga_viral += d;
-		
+
 	}
-	
+
 	public void disparar() {
-		//dispara 
+		arma.disparar();
+	}
+
+	public void moverADerecha() {
+
+		if (coordenadaX < 400) {
+			coordenadaX += 4;
+		}
+
+	}
+
+	public void moverAIzquierda() {
+
+		if (coordenadaX > 5)
+			coordenadaX -= 4;
+
 	}
 
 }

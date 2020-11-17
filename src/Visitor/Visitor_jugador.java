@@ -2,10 +2,10 @@ package Visitor;
 
 import Logica.Alpha;
 import Logica.Beta;
-import Logica.Efecto_temporal;
 import Logica.Jugador;
-import Logica.Objeto_precioso;
 import Logica.Particula;
+import Premio.Efecto_temporal;
+import Premio.Objeto_precioso;
 
 public class Visitor_jugador extends Visitor{
 	protected Jugador j;
