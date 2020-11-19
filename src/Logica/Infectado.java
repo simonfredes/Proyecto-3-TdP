@@ -10,7 +10,8 @@ public abstract class Infectado extends Personaje {
 	protected Point posicionActual;
 	protected Premio premio;
 	protected Particula particula;
-
+	
+	
 	// si al recibir daño, se desinfecta y además tiene premio, dropeamos premio en
 	// la pos posactual
 
@@ -27,7 +28,11 @@ public abstract class Infectado extends Personaje {
 	}
 
 	public void lanzar_particula() {
-
+		
 	}
 
 }
+/*
+
+
+*/

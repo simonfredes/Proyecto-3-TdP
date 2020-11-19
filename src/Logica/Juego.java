@@ -3,7 +3,7 @@ package Logica;
 import GUI.gameGUI;
 import Nivel.Nivel;
 
-public class Juego implements Runnable {
+public class Juego {
 	protected Mapa map;
 	protected gameGUI gui;
 
@@ -26,8 +26,11 @@ public class Juego implements Runnable {
 		return niveles[nivel_actual];
 	}
 	
-	@Override
-	public void run() {
-
+	public void accionar() {
+		
 	}
+	
+	//metodo agregar
+	
+
 }

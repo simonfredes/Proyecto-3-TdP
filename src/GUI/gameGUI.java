@@ -11,8 +11,8 @@ import Grafico.Grafico;
 import Grafico.GraficoInfectado;
 import Grafico.GraficoJugador;
 import Logica.Juego;
+import Logica.Mapa;
 
-import javax.swing.JLabel;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.Color;
@@ -20,8 +20,7 @@ import java.awt.Color;
 public class gameGUI extends JFrame {
 
 	private Juego game;
-	private JPanel contentPane;
-	private JLabel fondo;
+	private JPanel mapa;
 
 	/**
 	 * Launch the application.
@@ -47,16 +46,16 @@ public class gameGUI extends JFrame {
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 460, 481);
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(contentPane);
-		contentPane.setLayout(null);
+		mapa = new Mapa();
+		mapa.setBorder(new EmptyBorder(5, 5, 5, 5));//PASAR A MAPA
+		setContentPane(mapa);
+		mapa.setLayout(null);
 
 		Grafico jugadorPrueba = new GraficoJugador();
 		jugadorPrueba.setForeground(Color.BLACK);
 		jugadorPrueba.setBackground(Color.BLACK);
 		jugadorPrueba.setBounds(197, 387, 46, 55);
-		contentPane.add(jugadorPrueba);
+		mapa.add(jugadorPrueba);
 
 		addKeyListener(new KeyAdapter() {
 			@Override
@@ -72,25 +71,16 @@ public class gameGUI extends JFrame {
 					break;
 				}
 				}
-
 				posJugador.setLocation(game.getPlayer().getX(), posJugador.getY());
 				jugadorPrueba.setLocation(posJugador);
 			}
 		});
-		
+
 		Grafico infectadoPrueba = new GraficoInfectado();
 		infectadoPrueba.setForeground(Color.BLACK);
 		infectadoPrueba.setBackground(Color.BLACK);
 		infectadoPrueba.setBounds(198, 0, 46, 55);
-		contentPane.add(infectadoPrueba);
-		
-		/*		
-		new GraficoJugador();
-		jugadorPrueba.setForeground(Color.BLACK);
-		jugadorPrueba.setBackground(Color.BLACK);
-		jugadorPrueba.setBounds(197, 386, 46, 55);
-		contentPane.add(jugadorPrueba);
-		fondo = new JLabel("");	
-		*/
+		mapa.add(infectadoPrueba);
+
 	}
 }

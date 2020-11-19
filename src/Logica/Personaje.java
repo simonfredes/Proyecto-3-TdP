@@ -7,5 +7,4 @@ public abstract class Personaje extends Entidad{
 	public abstract boolean esta_infectado();
 	public abstract void recibir_danio(float d);
 
-	
 }

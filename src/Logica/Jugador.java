@@ -8,7 +8,7 @@ public class Jugador extends Personaje {
 	protected Arma arma;
 	protected int coordenadaX;
 	protected int coordenadaY;
-	protected Estado estado;
+	protected Premio premio;
 
 	public Jugador() {
 		this.imagen = new GraficoJugador();
