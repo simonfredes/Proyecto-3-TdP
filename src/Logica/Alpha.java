@@ -6,7 +6,7 @@ public class Alpha extends Infectado {
 		carga_viral = 100;
 		letalidad = 25;
 	}
-
+	
 	@Override
 	public void recibir_danio(float d) {
 		

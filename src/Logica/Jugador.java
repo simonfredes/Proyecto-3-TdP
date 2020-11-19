@@ -1,8 +1,5 @@
 package Logica;
 
-import javax.swing.ImageIcon;
-
-import Grafico.Grafico;
 import Grafico.GraficoJugador;
 import Premio.Premio;
 
@@ -43,18 +40,15 @@ public class Jugador extends Personaje {
 	}
 
 	public void moverADerecha() {
-
 		if (coordenadaX < 400) {
 			coordenadaX += 4;
 		}
-
 	}
 
 	public void moverAIzquierda() {
-
-		if (coordenadaX > 5)
+		if (coordenadaX > 3) {
 			coordenadaX -= 4;
-
+		}
 	}
 
 }

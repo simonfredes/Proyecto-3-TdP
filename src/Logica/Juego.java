@@ -1,24 +1,33 @@
 package Logica;
 
+import GUI.gameGUI;
 import Nivel.Nivel;
 
-public class Juego implements Runnable  {
-	
-	protected Jugador player;
-	protected Nivel nivel;
-	protected Entidad entidades;
+public class Juego implements Runnable {
 	protected Mapa map;
+	protected gameGUI gui;
+
+	protected Jugador player;
 	
+	protected Nivel[] niveles;
+	protected int nivel_actual;
 	
+	protected Entidad entidad;
+
 	public Juego() {
-		player=new Jugador();
+		player = new Jugador();
 	}
+
 	public Jugador getPlayer() {
 		return player;
 	}
+
+	public Nivel get_nivel_actual() {
+		return niveles[nivel_actual];
+	}
+	
 	@Override
 	public void run() {
-		// TODO Auto-generated method stub
-		
+
 	}
 }

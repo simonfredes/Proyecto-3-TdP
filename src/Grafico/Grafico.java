@@ -1,21 +1,17 @@
 package Grafico;
-import java.awt.Dimension;
 
-import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 public abstract class Grafico extends JLabel {
-	
+
 	protected ImageIcon grafico;
 	protected String[] imagenes;
-	
-	
 
 	protected Grafico() {
-		this.grafico= new ImageIcon();
+		this.grafico = new ImageIcon();
 	}
-	
+
 	public ImageIcon getGrafico() {
 		return grafico;
 	}
@@ -32,15 +28,12 @@ public abstract class Grafico extends JLabel {
 		this.imagenes = imagenes;
 	}
 
-
 	public void setImagen(int img) {
-		
+
 		if (img < this.imagenes.length) {
 			ImageIcon imageIcon = new ImageIcon(this.getClass().getResource(this.imagenes[img]));
-	        this.grafico.setImage(imageIcon.getImage());
-	        this.setIcon(imageIcon);
+			this.grafico.setImage(imageIcon.getImage());
+			this.setIcon(imageIcon);
 		}
 	}
-
-
 }

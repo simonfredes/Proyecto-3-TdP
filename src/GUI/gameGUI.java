@@ -1,15 +1,14 @@
 package GUI;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.awt.Point;
 
-import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import Grafico.Grafico;
+import Grafico.GraficoInfectado;
 import Grafico.GraficoJugador;
 import Logica.Juego;
 
@@ -56,9 +55,8 @@ public class gameGUI extends JFrame {
 		Grafico jugadorPrueba = new GraficoJugador();
 		jugadorPrueba.setForeground(Color.BLACK);
 		jugadorPrueba.setBackground(Color.BLACK);
-		jugadorPrueba.setBounds(197, 386, 46, 55);
+		jugadorPrueba.setBounds(197, 387, 46, 55);
 		contentPane.add(jugadorPrueba);
-		fondo = new JLabel("");
 
 		addKeyListener(new KeyAdapter() {
 			@Override
@@ -79,8 +77,20 @@ public class gameGUI extends JFrame {
 				jugadorPrueba.setLocation(posJugador);
 			}
 		});
-		fondo.setBounds(0, 0, 454, 452);
-		contentPane.add(fondo);
-
+		
+		Grafico infectadoPrueba = new GraficoInfectado();
+		infectadoPrueba.setForeground(Color.BLACK);
+		infectadoPrueba.setBackground(Color.BLACK);
+		infectadoPrueba.setBounds(198, 0, 46, 55);
+		contentPane.add(infectadoPrueba);
+		
+		/*		
+		new GraficoJugador();
+		jugadorPrueba.setForeground(Color.BLACK);
+		jugadorPrueba.setBackground(Color.BLACK);
+		jugadorPrueba.setBounds(197, 386, 46, 55);
+		contentPane.add(jugadorPrueba);
+		fondo = new JLabel("");	
+		*/
 	}
 }

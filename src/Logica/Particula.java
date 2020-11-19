@@ -1,8 +1,7 @@
 package Logica;
 
-public class Particula {
+public class Particula extends Entidad{
 	
 	protected int rango;
-	
-	
+
 }
