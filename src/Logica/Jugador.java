@@ -51,4 +51,10 @@ public class Jugador extends Personaje {
 		}
 	}
 
+	@Override
+	public void accionar() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

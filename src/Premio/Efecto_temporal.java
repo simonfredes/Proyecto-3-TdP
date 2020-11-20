@@ -8,4 +8,10 @@ public class Efecto_temporal extends Premio {
 		return null;
 	}
 
+	@Override
+	public void accionar() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

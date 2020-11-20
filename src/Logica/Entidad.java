@@ -11,7 +11,9 @@ public abstract class Entidad {
 	protected Grafico imagen;
 	protected Movimiento movimiento; 
 	protected Comportamiento comportamiento;
+	protected Juego juego;
 	
+
 	public void setImagen(Grafico i) {
 		imagen = i;
 	}
@@ -19,7 +21,9 @@ public abstract class Entidad {
 	public void aceptar(Visitor v) {
 
 	}
-
+	
+	public abstract void accionar();
+	
 	/**
 	 * Permite obtener la velocidad de movimiento de una Entidad.
 	 * @return la velocidad de una entidad.
@@ -31,4 +35,9 @@ public abstract class Entidad {
 	public Grafico getGrafico() {
 		return imagen;
 	}
+	
+	public Juego getJuego() {
+		return juego;
+	}
+	
 }

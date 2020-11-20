@@ -11,10 +11,8 @@ public abstract class Infectado extends Personaje {
 	protected Premio premio;
 	protected Particula particula;
 	
-	
 	// si al recibir daño, se desinfecta y además tiene premio, dropeamos premio en
 	// la pos posactual
-
 	public boolean esta_infectado() {
 		boolean es = false;
 		if (carga_viral > 0) {

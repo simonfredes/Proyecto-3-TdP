@@ -79,7 +79,7 @@ public class gameGUI extends JFrame {
 		Grafico infectadoPrueba = new GraficoInfectado();
 		infectadoPrueba.setForeground(Color.BLACK);
 		infectadoPrueba.setBackground(Color.BLACK);
-		infectadoPrueba.setBounds(198, 0, 46, 55);
+		infectadoPrueba.setBounds(198, -10, 46, 55);
 		mapa.add(infectadoPrueba);
 
 	}

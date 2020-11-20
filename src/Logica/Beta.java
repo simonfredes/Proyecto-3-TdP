@@ -1,10 +1,13 @@
 package Logica;
 
+import Movimiento.Movimiento_vertical;
+
 public class Beta extends Infectado{
 	
 	public Beta() {
 		carga_viral = 100;
 		letalidad = 10;
+		movimiento = new Movimiento_vertical(this);
 	}
 
 	@Override
@@ -16,5 +19,11 @@ public class Beta extends Infectado{
 		}
 	}
 	
+	@Override
+	public void accionar() {
+		//lanzar particula
+		//moverse
+		this.mover();
+	}
 	
 }

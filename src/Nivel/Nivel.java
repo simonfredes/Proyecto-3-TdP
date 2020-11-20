@@ -11,4 +11,8 @@ public abstract class Nivel {
 	public List<Infectado> get_lista_infectados(){
 		return lista_infectados;
 	}
+	
+	public  int get_cant_infectados() {
+		return cant_infectados;
+	}
 }
