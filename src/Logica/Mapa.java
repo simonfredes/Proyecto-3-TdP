@@ -11,6 +11,7 @@ import Nivel.Nivel_1;
 public class Mapa extends JPanel{
 	protected Nivel nivel;
 	protected List<Entidad> objetos_activos;
+	
 
 	public Mapa() {
 		objetos_activos = new LinkedList<Entidad>();

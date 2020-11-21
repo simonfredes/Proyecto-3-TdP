@@ -4,7 +4,7 @@ public class GraficoJugador extends Grafico {
 
 	public GraficoJugador() {
 		super();
-		imagenes = new String[] { "/Texturas/image.png" };
+		imagenes = new String[] { "/Texturas/avion.gif" };
 		this.setImagen(0);
 	}
 

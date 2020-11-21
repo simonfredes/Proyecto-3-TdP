@@ -15,6 +15,7 @@ import Logica.Mapa;
 
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.util.Random;
 import java.awt.Color;
 
 public class gameGUI extends JFrame {
@@ -26,9 +27,16 @@ public class gameGUI extends JFrame {
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
+		
+	
+		
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
+					
+					SplashScreen splash = new SplashScreen(300);
+					splash.showSplash();
+					
 					gameGUI frame = new gameGUI();
 					frame.setVisible(true);
 				} catch (Exception e) {
@@ -42,10 +50,10 @@ public class gameGUI extends JFrame {
 	 * Create the frame.
 	 */
 	public gameGUI() {
-		game = new Juego();
+		game = new Juego(this);
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 460, 481);
+		setBounds(100, 100, 600, 600);
 		mapa = new Mapa();
 		mapa.setBorder(new EmptyBorder(5, 5, 5, 5));//PASAR A MAPA
 		setContentPane(mapa);
@@ -54,7 +62,7 @@ public class gameGUI extends JFrame {
 		Grafico jugadorPrueba = new GraficoJugador();
 		jugadorPrueba.setForeground(Color.BLACK);
 		jugadorPrueba.setBackground(Color.BLACK);
-		jugadorPrueba.setBounds(197, 387, 46, 55);
+		jugadorPrueba.setBounds(268, 344, 201, 204);
 		mapa.add(jugadorPrueba);
 
 		addKeyListener(new KeyAdapter() {
@@ -79,8 +87,19 @@ public class gameGUI extends JFrame {
 		Grafico infectadoPrueba = new GraficoInfectado();
 		infectadoPrueba.setForeground(Color.BLACK);
 		infectadoPrueba.setBackground(Color.BLACK);
-		infectadoPrueba.setBounds(198, -10, 46, 55);
+		Random r = new Random();
+		
+		//int valor = r.nextInt()%mapa.getWidth();
+		infectadoPrueba.setBounds(200, 0, 46, 55);
 		mapa.add(infectadoPrueba);
+		
+		System.out.println("ancho: "+this.getWidth());
+		
+		
 
+	}
+	
+	public int get_ancho() {
+		return this.getWidth();
 	}
 }

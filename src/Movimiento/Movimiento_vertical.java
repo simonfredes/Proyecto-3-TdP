@@ -6,9 +6,8 @@ import Logica.Entidad;
 
 public class Movimiento_vertical extends Movimiento {
 
-	public Movimiento_vertical(Entidad entidad) {
-		this.direccion = 1;
-		this.entidad = entidad;
+	public Movimiento_vertical(Entidad e) {
+		super(e);
 	}
 
 	public void mover() {

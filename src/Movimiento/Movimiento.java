@@ -10,18 +10,25 @@ public abstract class Movimiento {
 	protected Entidad entidad;
 	protected int velocidad_extra;
 	protected int duracion;
+	protected int limiteY;
 
-	public abstract void mover() ;
-	
-	protected void mover_aux(Point p,double x,double y) {
+	public Movimiento(Entidad e) {
+		this.entidad = e;
+		direccion = 1;
+
+	}
+
+	public abstract void mover();
+
+	protected void mover_aux(Point p, double x, double y) {
 		if (y < entidad.getJuego().getPlayer().getGrafico().getY()) {
 			p.setLocation(x, y);
 			entidad.getGrafico().setLocation(p);
-		}else {
+		} else {
 			setear_ubicacion_inicial(p);
 		}
 	}
-	
+
 	protected void setear_ubicacion_inicial(Point p) {
 		double y = 0;
 		p.setLocation(get_x_random(), y);

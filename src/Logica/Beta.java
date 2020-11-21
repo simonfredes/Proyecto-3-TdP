@@ -1,10 +1,15 @@
 package Logica;
 
+import Comportamiento.Comportamiento;
+import Grafico.Grafico;
+import Movimiento.Movimiento;
 import Movimiento.Movimiento_vertical;
+import Visitor.Visitor;
 
 public class Beta extends Infectado{
 	
-	public Beta() {
+	public Beta(Visitor v, int velocidad, Grafico img, Movimiento mov, Comportamiento comp, Juego j) {
+		super(v, velocidad, img, mov, comp, j);
 		carga_viral = 100;
 		letalidad = 10;
 		movimiento = new Movimiento_vertical(this);

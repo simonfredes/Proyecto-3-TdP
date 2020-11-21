@@ -9,6 +9,10 @@ public class Visitor_alpha extends Visitor{
 	
 	protected Alpha a;
 	
+	public Visitor_alpha(Alpha a) {
+		this.a = a;
+	}
+	
 	public void visit_jugador(Jugador j) {
 		
 	}

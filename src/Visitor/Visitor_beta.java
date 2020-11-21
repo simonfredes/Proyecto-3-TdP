@@ -4,7 +4,7 @@ import Logica.Beta;
 import Logica.Jugador;
 import Logica.Proyectil;
 
-public class Visitor_beta {
+public class Visitor_beta extends Visitor{
 	protected Beta b;
 	
 	public void visit_jugador(Jugador j) {

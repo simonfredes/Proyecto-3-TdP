@@ -16,8 +16,9 @@ public class Juego {
 
 	protected Entidad entidad;
 
-	public Juego() {
-		player = new Jugador();
+	public Juego(gameGUI gui) {
+		player = new Jugador(null, nivel_actual, null, null, null, null);
+		this.gui = gui;
 	}
 
 	public Jugador getPlayer() {
