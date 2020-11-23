@@ -16,7 +16,7 @@ public class Movimiento_vertical_rapido extends Movimiento_vertical {
 	public void mover() {
 		Point p = entidad.getGrafico().getLocation();
 		double x = p.getX();
-		double y = p.getY() + entidad.get_velocidad_movimiento() * direccion + velocidad_extra;
+		double y = p.getY() + entidad.getVelocidad() * direccion + velocidad_extra;
 		this.mover_aux(p, x, y);
 //		p.setLocation(x, y);
 //		entidad.getGrafico().setLocation(p);

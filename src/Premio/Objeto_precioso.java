@@ -1,6 +1,13 @@
 package Premio;
 
+import Logica.Juego;
+
 public class Objeto_precioso extends Premio{
+
+	public Objeto_precioso(Juego j) {
+		super(j);
+
+	}
 
 	@Override
 	public Premio getPremio() {

@@ -19,9 +19,9 @@ public class Nivel_2 extends Nivel {
 			random = new Random();
 			valor = random.nextInt(3);
 			if (valor == 1) {
-				lista_infectados.add(new Beta(null, i, null, null, null, null));
+				lista_infectados.add(new Beta(juego));
 			} else {
-				lista_infectados.add(new Alpha(null, i, null, null, null, null));
+				lista_infectados.add(new Alpha(juego));
 			}
 		}
 	}

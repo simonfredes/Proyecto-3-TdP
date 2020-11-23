@@ -8,8 +8,8 @@ import Visitor.Visitor;
 public abstract class Personaje extends Entidad{
 	protected float carga_viral;
 	
-	public Personaje(Visitor v, int velocidad, Grafico img, Movimiento mov, Comportamiento comp, Juego j) {
-		super(v, velocidad, img, mov, comp, j);
+	public Personaje(Juego j) {
+		super(j);
 	}
 
 	public abstract boolean esta_infectado();

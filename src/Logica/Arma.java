@@ -3,7 +3,6 @@ package Logica;
 public class Arma {
 	
 	protected Proyectil p;
-	
 
 	public Arma(Proyectil p) {
 		this.p = p;
@@ -11,7 +10,7 @@ public class Arma {
 
 	public void disparar() {
 		// crear un nuevo proyectil y ubicarlo en el mapa
-		p = new Proyectil_sanitario();
+		//p = new Proyectil_sanitario();
 		//ubicarlo
 	}
 

@@ -3,8 +3,10 @@ package Nivel;
 import java.util.List;
 
 import Logica.Infectado;
+import Logica.Juego;
 
 public abstract class Nivel {
+	protected Juego juego;
 	protected int cant_infectados;
 	protected List<Infectado> lista_infectados;
 	

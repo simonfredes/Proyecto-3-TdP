@@ -1,18 +1,14 @@
 package Logica;
 
-import Comportamiento.Comportamiento;
-import Grafico.Grafico;
-import Movimiento.Movimiento;
-import Movimiento.Movimiento_vertical_rapido;
-import Visitor.Visitor;
+import Grafico.GraficoProyectilSanitarioPremio;
 
 public class Proyectil_sanitario_premio extends Proyectil{
 	
 	//relentiza tambien
-	public Proyectil_sanitario_premio(Visitor v, int velocidad, Grafico img, Movimiento mov, Comportamiento comp, Juego j) {
-		super(v, velocidad, img, mov, comp, j);
+	public Proyectil_sanitario_premio(Juego j) {
+		super(j);
 		this.cap_desinfeccion= 40;	
-		this.movimiento = new Movimiento_vertical_rapido(this);
+		this.imagen = new GraficoProyectilSanitarioPremio();
 	}
 
 	@Override

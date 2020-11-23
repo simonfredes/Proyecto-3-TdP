@@ -9,25 +9,54 @@ import Nivel.Nivel;
 import Nivel.Nivel_1;
 
 public class Mapa extends JPanel{
-	protected Nivel nivel;
-	protected List<Entidad> objetos_activos;
+
+	protected List<Entidad> entidades_activos;
+	protected List<Entidad> entidades_insertar;
+	protected List<Entidad> entidades_eliminar;
 	
 
 	public Mapa() {
-		objetos_activos = new LinkedList<Entidad>();
-		nivel = new Nivel_1();
+		entidades_activos = new LinkedList<Entidad>();
+		entidades_insertar = new LinkedList<Entidad>();
+		entidades_eliminar = new LinkedList<Entidad>();
+		
 	}
 	
-	public List<Entidad> get_objetos_activos(){
-		return objetos_activos;
+	
+	public void setEntidades_activos(Entidad e) {
+		this.entidades_activos.add(e);
+	}
+	
+	public void setEntidades_insertar(Entidad e) {
+		this.entidades_insertar.add(e);
+	}
+	
+	public List<Entidad> getEntidades_eliminar() {
+		return entidades_eliminar;
+	}
+	
+	public List<Entidad> getEntidades_activos() {
+		return entidades_activos;
+	}
+	
+	public List<Entidad> getEntidades_insertar() {
+		return entidades_insertar;
 	}
 	
 	public void insertar_objeto_activo(Entidad entidad) {
-		objetos_activos.add(entidad);
+		entidades_activos.add(entidad);
 	}
 	
 	//metodos para agregar entidades
 	public void insertar_infectado(Infectado infectado) {
 		
 	}
+	
+	public void actualizar() {
+		
+	}
+
+	
+	
+	
 }

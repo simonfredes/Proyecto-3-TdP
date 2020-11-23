@@ -8,7 +8,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import Grafico.Grafico;
-import Grafico.GraficoInfectado;
+import Grafico.GraficoAlpha;
 import Grafico.GraficoJugador;
 import Logica.Juego;
 import Logica.Mapa;
@@ -17,6 +17,8 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.util.Random;
 import java.awt.Color;
+import javax.swing.JLabel;
+import javax.swing.ImageIcon;
 
 public class gameGUI extends JFrame {
 
@@ -34,8 +36,8 @@ public class gameGUI extends JFrame {
 			public void run() {
 				try {
 					
-					SplashScreen splash = new SplashScreen(300);
-					splash.showSplash();
+//					SplashScreen splash = new SplashScreen(300);
+//					splash.showSplash();
 					
 					gameGUI frame = new gameGUI();
 					frame.setVisible(true);
@@ -59,16 +61,16 @@ public class gameGUI extends JFrame {
 		setContentPane(mapa);
 		mapa.setLayout(null);
 
-		Grafico jugadorPrueba = new GraficoJugador();
-		jugadorPrueba.setForeground(Color.BLACK);
-		jugadorPrueba.setBackground(Color.BLACK);
-		jugadorPrueba.setBounds(268, 344, 201, 204);
-		mapa.add(jugadorPrueba);
+		Grafico jugador_avion = new GraficoJugador();
+		jugador_avion.setForeground(Color.BLACK);
+		jugador_avion.setBackground(Color.BLACK);
+		jugador_avion.setBounds(214, 471, 100, 100);
+		mapa.add(jugador_avion);
 
 		addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyPressed(KeyEvent e) {
-				Point posJugador = jugadorPrueba.getLocation();
+				Point posJugador = jugador_avion.getLocation();
 				switch (e.getKeyCode()) {
 				case KeyEvent.VK_LEFT: {
 					game.getPlayer().moverAIzquierda();
@@ -80,11 +82,11 @@ public class gameGUI extends JFrame {
 				}
 				}
 				posJugador.setLocation(game.getPlayer().getX(), posJugador.getY());
-				jugadorPrueba.setLocation(posJugador);
+				jugador_avion.setLocation(posJugador);
 			}
 		});
 
-		Grafico infectadoPrueba = new GraficoInfectado();
+		Grafico infectadoPrueba = new GraficoAlpha();
 		infectadoPrueba.setForeground(Color.BLACK);
 		infectadoPrueba.setBackground(Color.BLACK);
 		Random r = new Random();
@@ -93,10 +95,15 @@ public class gameGUI extends JFrame {
 		infectadoPrueba.setBounds(200, 0, 46, 55);
 		mapa.add(infectadoPrueba);
 		
+		JLabel lblNewLabel = new JLabel("New label");
+		lblNewLabel.setIcon(new ImageIcon(gameGUI.class.getResource("/Texturas/fondo2.jpg")));
+		lblNewLabel.setBounds(0, 0, 594, 571);
+		mapa.add(lblNewLabel);
+		
 		System.out.println("ancho: "+this.getWidth());
 		
 		
-
+		
 	}
 	
 	public int get_ancho() {

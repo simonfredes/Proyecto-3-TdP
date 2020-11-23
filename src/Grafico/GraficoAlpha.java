@@ -1,8 +1,8 @@
 package Grafico;
 
-public class GraficoInfectado extends Grafico{
+public class GraficoAlpha extends Grafico{
 
-	public GraficoInfectado() {
+	public GraficoAlpha() {
 		super();
 		imagenes = new String[] { "/Texturas/image.png" };
 		this.setImagen(0);

@@ -1,24 +1,23 @@
 package Logica;
 
-import Comportamiento.Comportamiento;
-import Grafico.Grafico;
 import Grafico.GraficoJugador;
-import Movimiento.Movimiento;
 import Premio.Premio;
-import Visitor.Visitor;
 
 public class Jugador extends Personaje {
 
-	protected Arma arma;
+	protected Arma arma; //conceptual
 	protected int coordenadaX;
 	protected int coordenadaY;
 	protected Premio premio;
 
-	public Jugador(Visitor v, int velocidad, Grafico img, Movimiento mov, Comportamiento comp, Juego j) {
-		super(v, velocidad, img, mov, comp, j);
+	public Jugador(Juego j) {
+		super(j);
 		this.imagen = new GraficoJugador();
 		carga_viral = 0;
-		coordenadaX = 300;
+		arma = new Arma(new Proyectil_sanitario(j));
+		coordenadaX = 300; // obtener coordenada generica
+		//coordenadaY = 0; obtener coordenada generica
+		premio = null;
 	}
 
 	@Override

@@ -1,22 +1,23 @@
 package Logica;
 
-import Comportamiento.Comportamiento;
-import Grafico.Grafico;
-import Movimiento.Movimiento;
-import Visitor.Visitor;
-
 public class Particula extends Entidad{
 	
 	protected int rango;
 	
-	public Particula(Visitor v, int velocidad, Grafico img, Movimiento mov, Comportamiento comp, Juego j) {
-		super(v, velocidad, img, mov, comp, j);
+	public Particula(Juego j) {
+		super(j);
+		this.velocidad = 10;
+		rango = 5;
 	}
 
 	@Override
 	public void accionar() {
 		// TODO Auto-generated method stub
 		
+	}
+	
+	public Particula lanzar_particula() {
+		return new Particula(juego);
 	}
 
 }

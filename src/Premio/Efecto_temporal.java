@@ -1,6 +1,12 @@
 package Premio;
 
+import Logica.Juego;
+
 public class Efecto_temporal extends Premio {
+
+	public Efecto_temporal(Juego j) {
+		super(j);
+	}
 
 	@Override
 	public Premio getPremio() {
