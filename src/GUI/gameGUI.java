@@ -26,7 +26,7 @@ public class gameGUI extends JFrame {
 	private JPanel mapa;
 
 	/**
-	 * Launch the application.
+	 * Launch the application. //
 	 */
 	public static void main(String[] args) {
 		
