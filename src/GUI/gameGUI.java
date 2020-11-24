@@ -21,7 +21,7 @@ import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 
 public class gameGUI extends JFrame {
-
+//hola
 	private Juego game;
 	private JPanel mapa;
 
