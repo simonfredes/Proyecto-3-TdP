@@ -1,5 +1,7 @@
 package Logica;
 
+import java.awt.Point;
+
 import Comportamiento.Comportamiento;
 import Grafico.Grafico;
 import Movimiento.Movimiento;
@@ -11,6 +13,7 @@ public abstract class Entidad {
 	protected Movimiento movimiento; 
 	protected Comportamiento comportamiento;
 	protected Juego juego;
+	protected Point posicion;
 	
 	protected int velocidad;
 	

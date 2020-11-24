@@ -1,22 +1,23 @@
 package Logica;
 
+import java.awt.Point;
+
 import Grafico.GraficoJugador;
 import Premio.Premio;
 
 public class Jugador extends Personaje {
 
 	protected Arma arma; //conceptual
-	protected int coordenadaX;
-	protected int coordenadaY;
 	protected Premio premio;
-
+	protected int limiteX;
+	
 	public Jugador(Juego j) {
 		super(j);
+		limiteX = juego.getGui().get_ancho();
 		this.imagen = new GraficoJugador();
 		carga_viral = 0;
 		arma = new Arma(new Proyectil_sanitario(j));
-		coordenadaX = 300; // obtener coordenada generica
-		//coordenadaY = 0; obtener coordenada generica
+		posicion= new Point(limiteX/2 , 50);
 		premio = null;
 	}
 	
@@ -34,7 +35,7 @@ public class Jugador extends Personaje {
 	}
 
 	public int getX() {
-		return coordenadaX;
+		return (int) posicion.getX();
 	}
 
 	public void setPremio(Premio m) {
@@ -52,10 +53,10 @@ public class Jugador extends Personaje {
 	}
 
 	public void moverADerecha() {
-		if (coordenadaX < 600) {
-			coordenadaX += 6;
+		if (posicion.getX() < limiteX) {
+			posicion.setLocation(posicion.getX() + 6, posicion.getY());
 		}
-		
+	
 //		if (coordenadaX < juego.getGui().get_ancho()) {
 //			coordenadaX += 6;
 //		}
@@ -64,9 +65,9 @@ public class Jugador extends Personaje {
 	}
 
 	public void moverAIzquierda() {
-		if (coordenadaX > 3) {
-			coordenadaX -= 6;
-		}
+//		if (coordenadaX > 3) {
+//			coordenadaX -= 6;
+//		}
 	}
 
 	@Override
