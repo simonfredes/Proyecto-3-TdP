@@ -19,6 +19,10 @@ public class Jugador extends Personaje {
 		//coordenadaY = 0; obtener coordenada generica
 		premio = null;
 	}
+	
+	public Premio getPremio() {
+		return premio;
+	}
 
 	@Override
 	public boolean esta_infectado() {
@@ -33,6 +37,10 @@ public class Jugador extends Personaje {
 		return coordenadaX;
 	}
 
+	public void setPremio(Premio m) {
+		this.premio=m;
+	}
+	
 	@Override
 	public void recibir_danio(float d) {
 		carga_viral += d;
@@ -63,8 +71,7 @@ public class Jugador extends Personaje {
 
 	@Override
 	public void accionar() {
-		// TODO Auto-generated method stub
-		
+		//ACTUALIZAR DISPARO
 	}
 
 }

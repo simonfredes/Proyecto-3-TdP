@@ -23,11 +23,11 @@ public class Juego extends Thread{
 		player = new Jugador(this);
 		this.gui = gui;
 		juego_activo = true;
-		
 		niveles = new Nivel[2];
 		niveles[0] = new Nivel_1();
 		niveles[1] = new Nivel_2();
 		nivel_actual = 0;
+		//this.start();
 	}
 
 	public Jugador getPlayer() {
@@ -38,8 +38,8 @@ public class Juego extends Thread{
 		return gui;
 	}
 
-	public int get_nivel_actual() {
-		return nivel_actual;
+	public Nivel get_nivel_actual() {
+		return niveles[nivel_actual];
 	}
 	
 	public void avanzar_nivel() {
@@ -74,6 +74,10 @@ public class Juego extends Thread{
 			}			
 			map.actualizar();		
 		}
+	}
+	
+	public Mapa getMap() {
+		return map;
 	}
 
 	

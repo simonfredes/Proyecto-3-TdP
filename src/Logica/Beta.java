@@ -18,7 +18,7 @@ public class Beta extends Infectado{
 		carga_viral -= d * 0.15;
 		
 		if (carga_viral <= 0) {
-			// lo morimos
+			this.getJuego().getMap().eliminarEntidad_activos(this);
 		}
 	}
 	

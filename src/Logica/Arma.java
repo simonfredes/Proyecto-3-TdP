@@ -2,19 +2,21 @@ package Logica;
 
 public class Arma {
 	
-	protected Proyectil p;
-
+	protected Proyectil proyectil;
+	protected Jugador jugador;
+	
+	
 	public Arma(Proyectil p) {
-		this.p = p;
+		this.proyectil = p;
 	}
 
 	public void disparar() {
 		// crear un nuevo proyectil y ubicarlo en el mapa
-		//p = new Proyectil_sanitario();
+		proyectil = new Proyectil_sanitario(proyectil.getJuego());
 		//ubicarlo
 	}
 
 	public void setProyectil(Proyectil p) {
-		this.p = p;
+		this.proyectil = p;
 	}
 }
