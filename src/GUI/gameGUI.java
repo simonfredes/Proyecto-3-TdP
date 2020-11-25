@@ -21,7 +21,7 @@ import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 
 public class gameGUI extends JFrame {
-//hola
+
 	private Juego game;
 	private JPanel mapa;
 
@@ -100,7 +100,7 @@ public class gameGUI extends JFrame {
 		lblNewLabel.setBounds(0, 0, 594, 571);
 		mapa.add(lblNewLabel);
 		
-		System.out.println("ancho: "+this.getWidth());
+		System.out.println("ancho: "+mapa.getWidth());
 		
 		
 		

@@ -1,14 +1,11 @@
 package Logica;
 
-import java.awt.Point;
 import java.util.LinkedList;
 import java.util.List;
 
 import javax.swing.JPanel;
 
 import Grafico.Grafico;
-import Nivel.Nivel;
-import Nivel.Nivel_1;
 
 public class Mapa extends JPanel{
 
@@ -17,7 +14,7 @@ public class Mapa extends JPanel{
 	protected List<Entidad> entidades_eliminar;
 	protected boolean juego_activo;
 	protected int cantidadEnemigos;
-														
+
 	public Mapa() {
 		juego_activo=true;
 		entidades_activos = new LinkedList<Entidad>();
