@@ -15,7 +15,6 @@ public abstract class Movimiento {
 	public Movimiento(Entidad e) {
 		this.entidad = e;
 		direccion = 1;
-
 	}
 
 	public abstract void mover();

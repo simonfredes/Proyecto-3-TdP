@@ -12,8 +12,16 @@ public class HiloGeneral extends Thread {
 		 * realice su comportamiento
 		 */
 		game_gui = new gameGUI();
-		juego = this.game_gui.getGame();
+		juego = this.game_gui.getJuego();
 		this.start();
+	}
+	
+	public gameGUI getGame_gui() {
+		return game_gui;
+	}
+	
+	public Juego getJuego() {
+		return juego;
 	}
 
 	@Override

@@ -8,6 +8,7 @@ public class Movimiento_vertical extends Movimiento {
 
 	public Movimiento_vertical(Entidad e) {
 		super(e);
+		this.duracion = 5;
 	}
 
 	public void mover() {
@@ -15,12 +16,5 @@ public class Movimiento_vertical extends Movimiento {
 		double x = p.getX();
 		double y = p.getY() + entidad.getVelocidad() * direccion;
 		this.mover_aux(p, x, y);
-		
-//		if (y < entidad.getJuego().getPlayer().getGrafico().getY()) {
-//			p.setLocation(x, y);
-//			entidad.getGrafico().setLocation(p);
-//		}else {//subirlo
-//			setear_ubicacion_inicial(p);
-//		}
 	}
 }

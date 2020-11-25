@@ -9,6 +9,7 @@ import javax.swing.border.EmptyBorder;
 
 import Grafico.Grafico;
 import Grafico.GraficoAlpha;
+import Logica.HiloGeneral;
 import Logica.Juego;
 import Logica.Jugador;
 import Logica.Mapa;
@@ -21,9 +22,10 @@ import javax.swing.ImageIcon;
 
 public class gameGUI extends JFrame {
 
-	private Juego game;
+	private Juego juego;
 	private JPanel contentPane;
 	private Mapa labelMapa;
+//	private static HiloGeneral hilo;
 	public static final int LIMITE_IZQ_X = 0;
 	public static final int LIMITE_DER_X = 590;
 	public static final int LIMITE_INFERIOR = 570;
@@ -39,6 +41,9 @@ public class gameGUI extends JFrame {
 //					SplashScreen splash = new SplashScreen(300);
 //					splash.showSplash();
 					gameGUI frame = new gameGUI();
+//					hilo = new HiloGeneral();
+//					game = hilo.getJuego();
+//					gameGUI frame = hilo.getGame_gui();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -51,7 +56,9 @@ public class gameGUI extends JFrame {
 	 * Create the frame.
 	 */
 	public gameGUI() {
-		game = new Juego(this);
+		juego = new Juego(this);
+
+		Random random = new Random();
 
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -72,11 +79,8 @@ public class gameGUI extends JFrame {
 		labelMapa.setBounds(0, 0, LIMITE_DER_X, LIMITE_INFERIOR);
 		contentPane.add(labelMapa);
 
-		Jugador jugador = this.game.getPlayer();
+		Jugador jugador = juego.getPlayer();
 		Grafico grafico_jugador = jugador.getGrafico();
-//		grafico_jugador.setForeground(Color.BLACK);
-//		grafico_jugador.setBackground(Color.BLACK);
-//		grafico_jugador.setBounds(214, 471, 100, 100);
 		grafico_jugador.setBounds(jugador.get_x(), jugador.get_y(), grafico_jugador.getAncho(),
 				grafico_jugador.getAlto());
 		labelMapa.add(grafico_jugador);
@@ -84,20 +88,20 @@ public class gameGUI extends JFrame {
 		addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyPressed(KeyEvent e) {
-				Point posJugador = game.getPlayer().getPosicion();
+				Point posJugador = juego.getPlayer().getPosicion();
 
 				switch (e.getKeyCode()) {
 				case KeyEvent.VK_LEFT: {
-					game.getPlayer().moverAIzquierda();
+					juego.getPlayer().moverAIzquierda();
 					break;
 				}
 				case KeyEvent.VK_RIGHT: {
-					game.getPlayer().moverADerecha();
+					juego.getPlayer().moverADerecha();
 					break;
 				}
 
 				}
-				posJugador.setLocation(game.getPlayer().get_x(), game.getPlayer().get_y());
+				posJugador.setLocation(juego.getPlayer().get_x(), juego.getPlayer().get_y());
 				grafico_jugador.setLocation(posJugador);
 			}
 
@@ -105,7 +109,7 @@ public class gameGUI extends JFrame {
 			public void keyTyped(KeyEvent e) {
 				switch (e.getKeyCode()) {
 				case KeyEvent.VK_X: {
-					game.getPlayer().disparar();
+					juego.getPlayer().disparar();
 					break;
 				}
 				}
@@ -116,15 +120,15 @@ public class gameGUI extends JFrame {
 		infectadoPrueba.setForeground(Color.BLACK);
 		infectadoPrueba.setBackground(Color.BLACK);
 
-		Random r = new Random();
+		int valor = random.nextInt(LIMITE_DER_X);
 		// int valor = r.nextInt()%mapa.getWidth();
-		infectadoPrueba.setBounds(200, 0, 46, 55);
+		infectadoPrueba.setBounds(valor, 0, 46, 55);
 		labelMapa.add(infectadoPrueba);
 
 	}
 
-	public Juego getGame() {
-		return game;
+	public Juego getJuego() {
+		return juego;
 	}
 
 	public int get_alto() {

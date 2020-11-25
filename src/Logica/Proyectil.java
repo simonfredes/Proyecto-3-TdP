@@ -1,7 +1,6 @@
 package Logica;
 
-import Grafico.GraficoProyectilSanitario;
-import Movimiento.Movimiento_vertical_rapido;
+import Movimiento.Movimiento_vertical;
 import Visitor.Visitor_proyectil;
 
 public abstract class Proyectil extends Entidad{
@@ -10,8 +9,8 @@ public abstract class Proyectil extends Entidad{
 	
 	public Proyectil(Juego j) {
 		super(j);
-		this.movimiento = new Movimiento_vertical_rapido(this);
-		this.imagen = new GraficoProyectilSanitario();
 		this.visitor = new Visitor_proyectil();
+		this.movimiento = new Movimiento_vertical(this);
+//		this.grafico.setLocation(this.juego.getPlayer().getPosicion());
 	}
 }

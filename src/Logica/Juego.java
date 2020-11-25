@@ -10,26 +10,27 @@ import Nivel.Nivel_2;
 public class Juego {
 	protected Mapa map;
 	protected gameGUI gui;
-	protected Jugador player;
+	protected Jugador jugador;
 
 	protected Nivel[] niveles;
 	protected int nivel_actual;
 
-	protected Entidad entidad;
+//	protected Entidad entidad;
 	protected boolean juego_activo;
 
 	public Juego(gameGUI gui) {
-		player = new Jugador(this);
+		this.map = new Mapa();
+		this.jugador = new Jugador(this);
 		this.gui = gui;
-		juego_activo = true;
-		niveles = new Nivel[2];
-		niveles[0] = new Nivel_1();
-		niveles[1] = new Nivel_2();
-		nivel_actual = 0;
+		this.juego_activo = true;
+		this.niveles = new Nivel[2];
+		this.niveles[0] = new Nivel_1();
+		this.niveles[1] = new Nivel_2();
+		this.nivel_actual = 0;
 	}
 
 	public Jugador getPlayer() {
-		return player;
+		return jugador;
 	}
 
 	public gameGUI getGui() {

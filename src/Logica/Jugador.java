@@ -1,10 +1,9 @@
 package Logica;
 
-import java.awt.Point;
-
 import GUI.gameGUI;
 import Grafico.GraficoJugador;
 import Premio.Premio;
+import Visitor.Visitor_jugador;
 
 public class Jugador extends Personaje {
 
@@ -13,12 +12,13 @@ public class Jugador extends Personaje {
 
 	public Jugador(Juego j) {
 		super(j);
-		this.imagen = new GraficoJugador();
-		limite_der = gameGUI.LIMITE_DER_X - this.imagen.getAncho();
-		limite_izq = gameGUI.LIMITE_IZQ_X;
-		carga_viral = 0;
+		this.visitor = new Visitor_jugador(this);
+		this.grafico = new GraficoJugador();
+		this.carga_viral = 0;
 		arma = new Arma(new Proyectil_sanitario(j));
-		posicion = new Point(limite_der / 2, gameGUI.LIMITE_INFERIOR - imagen.getAlto() - 10);
+		limite_der = gameGUI.LIMITE_DER_X - this.grafico.getAncho();
+		limite_izq = gameGUI.LIMITE_IZQ_X;
+		this.grafico.setLocation(limite_der / 2, gameGUI.LIMITE_INFERIOR - grafico.getAlto() - 10);
 		premio = null;
 	}
 
@@ -38,7 +38,6 @@ public class Jugador extends Personaje {
 	@Override
 	public void recibir_danio(float d) {
 		carga_viral += d;
-
 	}
 
 	public void disparar() {
@@ -46,14 +45,14 @@ public class Jugador extends Personaje {
 	}
 
 	public void moverADerecha() {
-		if (posicion.getX() < limite_der) {
-			posicion.setLocation(posicion.getX() + 6, posicion.getY());
+		if (grafico.getX() < limite_der) {
+			grafico.setLocation(grafico.getX() + 6, grafico.getY());
 		}
 	}
 
 	public void moverAIzquierda() {
-		if (posicion.getX() > limite_izq) {
-			posicion.setLocation(posicion.getX() - 6, posicion.getY());
+		if (grafico.getX() > limite_izq) {
+			grafico.setLocation(grafico.getX() - 6, grafico.getY());
 		}
 	}
 

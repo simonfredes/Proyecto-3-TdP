@@ -16,11 +16,10 @@ public class Mapa extends JLabel {
 	protected int cantidadEnemigos;
 
 	public Mapa() {
-		juego_activo = true;
 		entidades_activos = new LinkedList<Entidad>();
 		entidades_insertar = new LinkedList<Entidad>();
 		entidades_eliminar = new LinkedList<Entidad>();
-
+		juego_activo = true;
 	}
 
 	public void eliminar_Grafico(Grafico e) {
