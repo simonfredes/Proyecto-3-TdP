@@ -23,10 +23,12 @@ import javax.swing.ImageIcon;
 public class gameGUI extends JFrame {
 
 	private Juego game;
-	private JPanel mapa;
-
+	private JPanel contentPane;
+	private Mapa mapa;
+	private JLabel labelMapa;
+	
 	/**
-	 * Launch the application.
+	 * Launch the application. //
 	 */
 	public static void main(String[] args) {
 		
@@ -53,13 +55,14 @@ public class gameGUI extends JFrame {
 	 */
 	public gameGUI() {
 		game = new Juego(this);
+		
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 600, 600);
-		mapa = new Mapa();
-		mapa.setBorder(new EmptyBorder(5, 5, 5, 5));//PASAR A MAPA
-		setContentPane(mapa);
-		mapa.setLayout(null);
+		setBounds(100, 100, 718, 600);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));//PASAR A MAPA
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
 
 		Grafico jugador_avion = new GraficoJugador();
 		jugador_avion.setForeground(Color.BLACK);
@@ -102,10 +105,22 @@ public class gameGUI extends JFrame {
 		
 		System.out.println("ancho: "+mapa.getWidth());
 		
+		labelMapa = new JLabel("New label");
+		labelMapa.setIcon(new ImageIcon(gameGUI.class.getResource("/Texturas/fondo2.jpg")));
+		labelMapa.setBounds(0, 0, 594, 571);
+		mapa.add(labelMapa);
 		
+		JPanel barraLateral = new JPanel();
+		barraLateral.setBounds(593, 0, 119, 571);
+		mapa.add(barraLateral);
 		
+		System.out.println("ancho: "+this.getWidth());
+
 	}
+	public int get_alto() {
+		return labelMapa.getX();
 	
+	}
 	public int get_ancho() {
 		return this.getWidth();
 	}
