@@ -5,7 +5,6 @@ public class Arma {
 	protected Proyectil proyectil;
 	protected Jugador jugador;
 	
-	
 	public Arma(Proyectil p) {
 		this.proyectil = p;
 	}

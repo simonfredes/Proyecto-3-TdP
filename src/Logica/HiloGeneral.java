@@ -2,16 +2,18 @@ package Logica;
 
 import GUI.gameGUI;
 
-public class Hilo extends Thread {
+public class HiloGeneral extends Thread {
 	protected gameGUI game_gui;
 	protected Juego juego;
 
-	public Hilo() {
+	public HiloGeneral() {
 		/*
 		 * por cada iteracion del hilo accionar() para que cada entidad del juego
 		 * realice su comportamiento
 		 */
-		
+		game_gui = new gameGUI();
+		juego = this.game_gui.getGame();
+		this.start();
 	}
 
 	@Override

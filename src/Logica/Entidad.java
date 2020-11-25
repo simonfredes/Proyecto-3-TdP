@@ -33,6 +33,14 @@ public abstract class Entidad {
 		return imagen;
 	}
 	
+	public int get_x() {
+		return (int) posicion.getX();
+	}
+	
+	public int get_y() {
+		return (int) posicion.getY();
+	}
+	
 	public int getVelocidad() {
 		return velocidad;
 	}
@@ -45,6 +53,10 @@ public abstract class Entidad {
 	}
 	public Movimiento getMovimiento() {
 		return movimiento;
+	}
+	
+	public Point getPosicion() {
+		return posicion;
 	}
 	
 	public abstract void accionar();

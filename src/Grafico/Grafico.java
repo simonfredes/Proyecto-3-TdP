@@ -7,6 +7,7 @@ public abstract class Grafico extends JLabel {
 
 	protected ImageIcon grafico;
 	protected String[] imagenes;
+	protected int alto,ancho;
 
 	protected Grafico() {
 		this.grafico = new ImageIcon();
@@ -29,11 +30,20 @@ public abstract class Grafico extends JLabel {
 	}
 
 	public void setImagen(int img) {
-
 		if (img < this.imagenes.length) {
 			ImageIcon imageIcon = new ImageIcon(this.getClass().getResource(this.imagenes[img]));
 			this.grafico.setImage(imageIcon.getImage());
 			this.setIcon(imageIcon);
+			this.alto = imageIcon.getIconHeight();
+			this.ancho = imageIcon.getIconWidth();
 		}
+	}
+	
+	public int getAlto() {
+		return alto;
+	}
+	
+	public int getAncho() {
+		return ancho;
 	}
 }

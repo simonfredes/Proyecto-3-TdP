@@ -12,7 +12,6 @@ public abstract class Infectado extends Personaje {
 	
 	protected int letalidad;
 	protected Point posicionActual;
-	protected Premio premio;
 	protected Particula particula;
 	protected int cooldown; //duracion
 	

@@ -9,38 +9,35 @@ import javax.swing.border.EmptyBorder;
 
 import Grafico.Grafico;
 import Grafico.GraficoAlpha;
-import Grafico.GraficoJugador;
 import Logica.Juego;
+import Logica.Jugador;
 import Logica.Mapa;
 
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.util.Random;
 import java.awt.Color;
-import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 
 public class gameGUI extends JFrame {
 
 	private Juego game;
 	private JPanel contentPane;
-	private Mapa mapa;
-	private JLabel labelMapa;
-	
+	private Mapa labelMapa;
+	public static final int LIMITE_IZQ_X = 0;
+	public static final int LIMITE_DER_X = 590;
+	public static final int LIMITE_INFERIOR = 570;
+	public static final int LIMITE_SUPERIOR = 0;
+
 	/**
 	 * Launch the application. //
 	 */
 	public static void main(String[] args) {
-		
-	
-		
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					
 //					SplashScreen splash = new SplashScreen(300);
 //					splash.showSplash();
-					
 					gameGUI frame = new gameGUI();
 					frame.setVisible(true);
 				} catch (Exception e) {
@@ -55,25 +52,40 @@ public class gameGUI extends JFrame {
 	 */
 	public gameGUI() {
 		game = new Juego(this);
-		
+
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 718, 600);
+		setBounds(100, 100, 802, 600);
 		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));//PASAR A MAPA
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));// PASAR A MAPA
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
-		Grafico jugador_avion = new GraficoJugador();
-		jugador_avion.setForeground(Color.BLACK);
-		jugador_avion.setBackground(Color.BLACK);
-		jugador_avion.setBounds(214, 471, 100, 100);
-		mapa.add(jugador_avion);
+		// ---------------- BARRA LATERAL DONDE VAN LAS OPCIONES ----------------
+		JPanel barra_opciones = new JPanel();
+		barra_opciones.setBounds(590, 0, 206, 571);
+		contentPane.add(barra_opciones);
+
+		// ---------------- MAPA ----------------
+		labelMapa = new Mapa();
+		labelMapa.setIcon(new ImageIcon(gameGUI.class.getResource("/Texturas/fondo2.jpg")));
+		labelMapa.setBounds(0, 0, LIMITE_DER_X, LIMITE_INFERIOR);
+		contentPane.add(labelMapa);
+
+		Jugador jugador = this.game.getPlayer();
+		Grafico grafico_jugador = jugador.getGrafico();
+//		grafico_jugador.setForeground(Color.BLACK);
+//		grafico_jugador.setBackground(Color.BLACK);
+//		grafico_jugador.setBounds(214, 471, 100, 100);
+		grafico_jugador.setBounds(jugador.get_x(), jugador.get_y(), grafico_jugador.getAncho(),
+				grafico_jugador.getAlto());
+		labelMapa.add(grafico_jugador);
 
 		addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyPressed(KeyEvent e) {
-				Point posJugador = jugador_avion.getLocation();
+				Point posJugador = game.getPlayer().getPosicion();
+
 				switch (e.getKeyCode()) {
 				case KeyEvent.VK_LEFT: {
 					game.getPlayer().moverAIzquierda();
@@ -83,45 +95,43 @@ public class gameGUI extends JFrame {
 					game.getPlayer().moverADerecha();
 					break;
 				}
+
 				}
-				posJugador.setLocation(game.getPlayer().getX(), posJugador.getY());
-				jugador_avion.setLocation(posJugador);
+				posJugador.setLocation(game.getPlayer().get_x(), game.getPlayer().get_y());
+				grafico_jugador.setLocation(posJugador);
+			}
+
+			@Override
+			public void keyTyped(KeyEvent e) {
+				switch (e.getKeyCode()) {
+				case KeyEvent.VK_X: {
+					game.getPlayer().disparar();
+					break;
+				}
+				}
 			}
 		});
 
 		Grafico infectadoPrueba = new GraficoAlpha();
 		infectadoPrueba.setForeground(Color.BLACK);
 		infectadoPrueba.setBackground(Color.BLACK);
+
 		Random r = new Random();
-		
-		//int valor = r.nextInt()%mapa.getWidth();
+		// int valor = r.nextInt()%mapa.getWidth();
 		infectadoPrueba.setBounds(200, 0, 46, 55);
-		mapa.add(infectadoPrueba);
-		
-		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setIcon(new ImageIcon(gameGUI.class.getResource("/Texturas/fondo2.jpg")));
-		lblNewLabel.setBounds(0, 0, 594, 571);
-		mapa.add(lblNewLabel);
-		
-		System.out.println("ancho: "+mapa.getWidth());
-		
-		labelMapa = new JLabel("New label");
-		labelMapa.setIcon(new ImageIcon(gameGUI.class.getResource("/Texturas/fondo2.jpg")));
-		labelMapa.setBounds(0, 0, 594, 571);
-		mapa.add(labelMapa);
-		
-		JPanel barraLateral = new JPanel();
-		barraLateral.setBounds(593, 0, 119, 571);
-		mapa.add(barraLateral);
-		
-		System.out.println("ancho: "+this.getWidth());
+		labelMapa.add(infectadoPrueba);
 
 	}
-	public int get_alto() {
-		return labelMapa.getX();
-	
+
+	public Juego getGame() {
+		return game;
 	}
+
+	public int get_alto() {
+		return labelMapa.getHeight();
+	}
+
 	public int get_ancho() {
-		return this.getWidth();
+		return labelMapa.getWidth();
 	}
 }
