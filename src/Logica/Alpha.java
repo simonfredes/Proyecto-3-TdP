@@ -27,8 +27,8 @@ public class Alpha extends Infectado {
 				premio = null;
 			}
 		}
-		valor = ran.nextInt(gameGUI.LIMITE_DER_X);
-		this.grafico.setLocation(valor, gameGUI.LIMITE_SUPERIOR);
+		valor = ran.nextInt(Mapa.LIMITE_DER_X);
+		this.grafico.setLocation(valor, Mapa.LIMITE_SUPERIOR);
 		this.velocidad = 5;
 		this.letalidad = 25;
 	}

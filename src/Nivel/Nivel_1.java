@@ -8,7 +8,7 @@ import Logica.Beta;
 import Logica.Infectado;
 
 public class Nivel_1 extends Nivel {
-	
+
 	public Nivel_1() {
 		Random random;
 		int valor;

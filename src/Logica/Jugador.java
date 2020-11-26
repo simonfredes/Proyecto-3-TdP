@@ -14,10 +14,10 @@ public class Jugador extends Personaje {
 		this.visitor = new Visitor_jugador(this);
 		this.grafico = new GraficoJugador();
 		this.carga_viral = 0;
-		arma = new Arma(new Proyectil_sanitario(this.grafico));
-		limite_der = gameGUI.LIMITE_DER_X - this.grafico.getAncho();
-		limite_izq = gameGUI.LIMITE_IZQ_X;
-		this.grafico.setLocation(limite_der / 2, gameGUI.LIMITE_INFERIOR - grafico.getAlto() - 10);
+		arma = new Arma(new Proyectil_sanitario(this.grafico),this);
+		limite_der = Mapa.LIMITE_DER_X - this.grafico.getAncho();
+		limite_izq = Mapa.LIMITE_IZQ_X;
+		this.grafico.setLocation(limite_der / 2, Mapa.LIMITE_INFERIOR - grafico.getAlto() - 10);
 		premio = null;
 	}
 

@@ -1,5 +1,6 @@
 package Logica;
 
+import java.util.LinkedList;
 import java.util.List;
 
 import GUI.gameGUI;
@@ -7,26 +8,47 @@ import Nivel.Nivel;
 import Nivel.Nivel_1;
 import Nivel.Nivel_2;
 
+/*
+ * -que el mapa se encargue de la grafica
+ * 
+ * 
+ */
 public class Juego {
-	protected Mapa map;
+	protected Mapa mapa;
 	protected gameGUI gui;
 	protected Jugador jugador;
-
 	protected Nivel[] niveles;
 	protected int nivel_actual;
-
-//	protected Entidad entidad;
+	protected List<Entidad> entidadesActivas;
+	protected List<Entidad> entidadesInsertar;
+	protected List<Entidad> entidadesEliminar;
 	protected boolean juego_activo;
 
 	public Juego(gameGUI gui) {
-		this.map = new Mapa();
-		this.jugador = new Jugador();
+		this.mapa = new Mapa();
 		this.gui = gui;
-		this.juego_activo = true;
+		this.jugador = new Jugador();
 		this.niveles = new Nivel[2];
 		this.niveles[0] = new Nivel_1();
 		this.niveles[1] = new Nivel_2();
 		this.nivel_actual = 0;
+		this.entidadesActivas = new LinkedList<Entidad>();
+		this.entidadesInsertar = new LinkedList<Entidad>();
+		this.entidadesEliminar = new LinkedList<Entidad>();
+		this.juego_activo = true;
+	}
+
+	public void insertarEntidadActiva(Entidad entidad) {
+		this.entidadesActivas.add(entidad);
+		this.mapa.insertarGrafico(entidad.getGrafico()); // inserta el grafico de la entidad a la grafica
+	}
+
+	public void insertarEntidadEliminar(Entidad e) {
+		this.entidadesEliminar.add(e);
+	}
+
+	public void insertarEntidadInsertar(Entidad e) {
+		this.entidadesInsertar.add(e);
 	}
 
 	public Jugador getPlayer() {
@@ -35,6 +57,10 @@ public class Juego {
 
 	public gameGUI getGui() {
 		return gui;
+	}
+
+	public Mapa getMap() {
+		return mapa;
 	}
 
 	public Nivel get_nivel_actual() {
@@ -56,18 +82,12 @@ public class Juego {
 	}
 
 	public void accionar() {
-		List<Entidad> entidades_activas = map.getEntidades_activos();
-
-		for (Entidad e : entidades_activas) {
+		for (Entidad e : this.entidadesActivas) {
 			e.accionar();
 		}
 	}
 
-	public Mapa getMap() {
-		return map;
-	}
-
 	public void generarDisparo(Proyectil disparo) {
-		this.gui.getLabelMapa().add(disparo.getGrafico());
+		this.insertarEntidadActiva(disparo);
 	}
 }

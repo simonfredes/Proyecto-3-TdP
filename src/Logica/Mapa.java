@@ -1,96 +1,72 @@
 package Logica;
 
-import java.util.LinkedList;
-import java.util.List;
-
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 import Grafico.Grafico;
 
-public class Mapa extends JLabel {
+public class Mapa extends JPanel {
 
-	protected List<Entidad> entidades_activos;
-	protected List<Entidad> entidades_insertar;
-	protected List<Entidad> entidades_eliminar;
-	protected boolean juego_activo;
+	public static final int LIMITE_IZQ_X = 0;
+	public static final int LIMITE_DER_X = 590;
+	public static final int LIMITE_INFERIOR = 570;
+	public static final int LIMITE_SUPERIOR = 0;
+
+//	protected List<Entidad> entidades_activos;
+//	protected List<Entidad> entidades_insertar;
+//	protected List<Entidad> entidades_eliminar;
+	//	protected boolean juego_activo;
 	protected int cantidadEnemigos;
-
-	public Mapa() {
-		entidades_activos = new LinkedList<Entidad>();
-		entidades_insertar = new LinkedList<Entidad>();
-		entidades_eliminar = new LinkedList<Entidad>();
-		juego_activo = true;
+	protected JLabel background;
+	protected Juego juego;
+	
+	public Mapa(Juego juego) {
+//		entidades_activos = new LinkedList<Entidad>();
+//		entidades_insertar = new LinkedList<Entidad>();
+//		entidades_eliminar = new LinkedList<Entidad>();
+//		this.juego_activo = true;
+		this.background = new JLabel();
+		this.background.setBounds(this.getX(), this.getY(), this.getWidth(), this.getHeight());
+		this.background.setIcon(new ImageIcon(this.getClass().getResource("/Texturas/fondo2.jpg")));
+		this.add(background);
+		this.setComponentZOrder(this.background, 0);
+		this.juego = juego;
 	}
+	
+	
 
-	public void eliminar_Grafico(Grafico e) {
-		remove(e);
+	public void insertarGrafico(Grafico g) {
+		this.add(g);
+	}
+	
+	public void eliminar_Grafico(Grafico g) {
+		this.remove(g);
 		this.repaint();
 	}
 
-	public void setJuego_activo(boolean juego_activo) {
-		this.juego_activo = juego_activo;
-	}
-
-	public void eliminarEntidad_activos(Entidad e) {
-		entidades_eliminar.add(e);
-		entidades_activos.remove(e);
-	}
-
-	public void insertEntidades_activos(Entidad e) {
-		this.entidades_activos.add(e);
-	}
-
-	public void insertEntidades_insertar(Entidad e) {
-		this.entidades_insertar.add(e);
-	}
-
-	public List<Entidad> getEntidades_eliminar() {
-		return entidades_eliminar;
-	}
-
-	public List<Entidad> getEntidades_activos() {
-		return entidades_activos;
-	}
-
-	public List<Entidad> getEntidades_insertar() {
-		return entidades_insertar;
-	}
-
-	public void insertar_objeto_activo(Entidad entidad) {
-		entidades_activos.add(entidad);
-	}
-
-	// metodos para agregar entidades
-	public void insertar_infectado(Infectado infectado) {
-
-	}
-
-	public boolean isJuego_activo() {
-		return juego_activo;
-	}
-
+	//ACTUALIZA LA GRAFICA
 	public void actualizar() {
-		// TODO hacer lo mismo con entidades_insertar
-
-		if (juego_activo) {
-			if (ganoJuego()) {
-				juego_activo = false;
-			}
-			for (Entidad e : entidades_eliminar) {
-				eliminar_Grafico(e.getGrafico());
-				entidades_eliminar.remove(e);
-			}
-
-			for (Entidad e : entidades_insertar) {
-				entidades_activos.add(e);
-
-			}
-
-			for (Entidad e : entidades_activos) {
-				e.accionar();
-			}
-		}
-
+//		// TODO hacer lo mismo con entidades_insertar
+//
+//		if (juego_activo) {
+//			if (ganoJuego()) {
+//				juego_activo = false;
+//			}
+//			for (Entidad e : entidades_eliminar) {
+//				eliminar_Grafico(e.getGrafico()); //de mapa
+//				entidades_eliminar.remove(e);
+//			}
+//
+//			for (Entidad e : entidades_insertar) {
+//				entidades_activos.add(e);
+//			}
+//			this.entidades_insertar = new LinkedList<Entidad>();
+//
+//			for (Entidad e : entidades_activos) {
+//				e.accionar();
+//			}
+//		}
 	}
 
 	private boolean ganoJuego() {

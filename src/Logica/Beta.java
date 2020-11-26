@@ -26,8 +26,8 @@ public class Beta extends Infectado {
 				premio = null;
 			}
 		}
-		valor = ran.nextInt(gameGUI.LIMITE_DER_X);
-		this.grafico.setLocation(valor, gameGUI.LIMITE_SUPERIOR);
+		valor = ran.nextInt(Mapa.LIMITE_DER_X);
+		this.grafico.setLocation(valor, Mapa.LIMITE_SUPERIOR);
 		this.velocidad = 7;
 		this.letalidad = 10;
 	}
@@ -36,7 +36,7 @@ public class Beta extends Infectado {
 	public void recibir_danio(float d) {
 		carga_viral -= d * 0.15;
 		if (carga_viral <= 0) {
-			this.getJuego().getMap().eliminarEntidad_activos(this);
+//			this.getJuego().getMap().eliminarEntidad_activos(this);
 		}
 	}
 

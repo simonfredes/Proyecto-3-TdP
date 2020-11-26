@@ -8,8 +8,6 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import Grafico.Grafico;
-import Grafico.GraficoAlpha;
-import Logica.HiloGeneral;
 import Logica.Juego;
 import Logica.Jugador;
 import Logica.Mapa;
@@ -17,41 +15,13 @@ import Logica.Mapa;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.util.Random;
-import java.awt.Color;
-import javax.swing.ImageIcon;
 
 public class gameGUI extends JFrame {
 
 	private Juego juego;
 	private JPanel contentPane;
-	private Mapa labelMapa;
-//	private static HiloGeneral hilo;
-	public static final int LIMITE_IZQ_X = 0;
-	public static final int LIMITE_DER_X = 590;
-	public static final int LIMITE_INFERIOR = 570;
-	public static final int LIMITE_SUPERIOR = 0;
-
-	/**
-	 * Launch the application. //
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-//					SplashScreen splash = new SplashScreen(300);
-//					splash.showSplash();
-					gameGUI frame = new gameGUI();
-//					hilo = new HiloGeneral();
-//					game = hilo.getJuego();
-//					gameGUI frame = hilo.getGame_gui();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
+	private Mapa panelMapa;
+	
 	/*
 	 * Create the frame.
 	 */
@@ -72,18 +42,16 @@ public class gameGUI extends JFrame {
 		JPanel barra_opciones = new JPanel();
 		barra_opciones.setBounds(590, 0, 206, 571);
 		contentPane.add(barra_opciones);
-
-		// ---------------- MAPA ----------------
-		labelMapa = new Mapa();
-		labelMapa.setIcon(new ImageIcon(gameGUI.class.getResource("/Texturas/fondo2.jpg")));
-		labelMapa.setBounds(0, 0, LIMITE_DER_X, LIMITE_INFERIOR);
-		contentPane.add(labelMapa);
+		
+//		panelMapa = new Mapa();
+//		panelMapa.setBounds(0, 0, 591, 571);
+//		contentPane.add(panelMapa);
+//		panelMapa.setLayout(null);
 
 		Jugador jugador = juego.getPlayer();
 		Grafico grafico_jugador = jugador.getGrafico();
 		grafico_jugador.setBounds(jugador.get_x(), jugador.get_y(), grafico_jugador.getAncho(),
 				grafico_jugador.getAlto());
-		labelMapa.add(grafico_jugador);
 
 		addKeyListener(new KeyAdapter() {
 			@Override
@@ -99,7 +67,14 @@ public class gameGUI extends JFrame {
 					juego.getPlayer().moverADerecha();
 					break;
 				}
-
+				case KeyEvent.VK_SPACE: {
+					System.out.println("keo");
+					juego.getPlayer().disparar();
+					//disparar de jugador tiene que retornar proyectil
+                    juego.generarDisparo(jugador.disparar());
+                    System.out.print("as");
+					break;
+				}
 				}
 				posJugador.setLocation(juego.getPlayer().get_x(), juego.getPlayer().get_y());
 				grafico_jugador.setLocation(posJugador);
@@ -107,26 +82,21 @@ public class gameGUI extends JFrame {
 
 			@Override
 			public void keyTyped(KeyEvent e) {
+
 				switch (e.getKeyCode()) {
-				case KeyEvent.VK_SPACE: {
-					juego.getPlayer().disparar();
-					//disparar de jugador tiene que retornar proyectil
-                    juego.generarDisparo(jugador.disparar());
-                    System.out.print("booludaso");
-					break;
-				}
+//				case KeyEvent.VK_SPACE: {
+//					System.out.println("keo");
+//					juego.getPlayer().disparar();
+//					//disparar de jugador tiene que retornar proyectil
+//                    juego.generarDisparo(jugador.disparar());
+//                    System.out.print("booludaso");
+//					break;
+//				}
 				}
 			}
 		});
 
-		Grafico infectadoPrueba = new GraficoAlpha();
-		infectadoPrueba.setForeground(Color.BLACK);
-		infectadoPrueba.setBackground(Color.BLACK);
-
-		int valor = random.nextInt(LIMITE_DER_X);
-		// int valor = r.nextInt()%mapa.getWidth();
-		infectadoPrueba.setBounds(valor, 0, 46, 55);
-		labelMapa.add(infectadoPrueba);
+//		int valor = random.nextInt(LIMITE_DER_X);
 
 	}
 
@@ -135,14 +105,36 @@ public class gameGUI extends JFrame {
 	}
 
 	public int get_alto() {
-		return labelMapa.getHeight();
+		return panelMapa.getHeight();
 	}
 	
-	public Mapa getLabelMapa() {
-		return labelMapa;
+	public Mapa getPanelMapa() {
+		return panelMapa;
 	}
 
 	public int get_ancho() {
-		return labelMapa.getWidth();
+		return panelMapa.getWidth();
+	}
+	
+
+	/**
+	 * Launch the application. //
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+//					SplashScreen splash = new SplashScreen(300);
+//					splash.showSplash();
+					gameGUI frame = new gameGUI();
+//					hilo = new HiloGeneral();
+//					game = hilo.getJuego();
+//					gameGUI frame = hilo.getGame_gui();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
 	}
 }
