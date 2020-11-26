@@ -15,7 +15,7 @@ public abstract class Infectado extends Personaje {
 
 	public Infectado(Juego j) {
 		this.carga_viral = 100;
-		this.movimiento = new Movimiento_vertical(this);
+		this.movimiento = new Movimiento_vertical(this,Movimiento_vertical.ABAJO);
 		cooldown = 45;
 //		int valor;
 //		Random ran = new Random();

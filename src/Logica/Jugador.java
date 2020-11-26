@@ -58,6 +58,7 @@ public class Jugador extends Personaje {
 	@Override
 	public void accionar() {
 		// ACTUALIZAR DISPARO
+		disparar();
 	}
 
 }

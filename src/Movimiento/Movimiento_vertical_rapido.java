@@ -7,8 +7,8 @@ import Logica.Entidad;
 public class Movimiento_vertical_rapido extends Movimiento_vertical {
 	
 
-	public Movimiento_vertical_rapido(Entidad entidad) {
-		super(entidad);
+	public Movimiento_vertical_rapido(Entidad entidad, int direccion) {
+		super(entidad,direccion);
 		this.velocidad_extra = 6;
 		duracion = 20;
 	}

@@ -5,6 +5,7 @@ import java.awt.Point;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
 import javax.swing.border.EmptyBorder;
 
 import Grafico.Grafico;
@@ -41,8 +42,11 @@ public class gameGUI extends JFrame {
 		// ---------------- BARRA LATERAL DONDE VAN LAS OPCIONES ----------------
 		JPanel barra_opciones = new JPanel();
 		barra_opciones.setBounds(590, 0, 206, 571);
-		contentPane.add(barra_opciones);
 		
+		contentPane.add(juego.getMap());
+		
+		contentPane.add(barra_opciones);
+				
 //		panelMapa = new Mapa();
 //		panelMapa.setBounds(0, 0, 591, 571);
 //		contentPane.add(panelMapa);
@@ -97,7 +101,7 @@ public class gameGUI extends JFrame {
 		});
 
 //		int valor = random.nextInt(LIMITE_DER_X);
-
+		this.setVisible(true);
 	}
 
 	public Juego getJuego() {
@@ -120,21 +124,38 @@ public class gameGUI extends JFrame {
 	/**
 	 * Launch the application. //
 	 */
+//	public static void main(String[] args) {
+//		EventQueue.invokeLater(new Runnable() {
+//			public void run() {
+//				try {
+////					SplashScreen splash = new SplashScreen(300);
+////					splash.showSplash();
+//					gameGUI frame = new gameGUI();
+//					
+//					//gameGUI g = new gameGUI();
+//					Thread t = new Thread();
+//					t.start();
+//					
+////					hilo = new HiloGeneral();
+////					game = hilo.getJuego();
+////					gameGUI frame = hilo.getGame_gui();
+//					frame.setVisible(true);
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//			}
+//		});
+//	}
+	
 	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
+		SwingUtilities.invokeLater(new Runnable() {
+			@Override
 			public void run() {
-				try {
-//					SplashScreen splash = new SplashScreen(300);
-//					splash.showSplash();
-					gameGUI frame = new gameGUI();
-//					hilo = new HiloGeneral();
-//					game = hilo.getJuego();
-//					gameGUI frame = hilo.getGame_gui();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
+				gameGUI g = new gameGUI();
+				Thread t = new Thread(g.getJuego());
+				t.start();
 			}
 		});
 	}
+	
 }

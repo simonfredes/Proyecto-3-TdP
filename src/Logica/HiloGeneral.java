@@ -6,13 +6,13 @@ public class HiloGeneral extends Thread {
 	protected gameGUI game_gui;
 	protected Juego juego;
 
-	public HiloGeneral() {
+	public HiloGeneral(Juego juego, gameGUI game_gui) {
 		/*
 		 * por cada iteracion del hilo accionar() para que cada entidad del juego
 		 * realice su comportamiento
 		 */
-		game_gui = new gameGUI();
-		juego = this.game_gui.getJuego();
+		this.game_gui = game_gui;
+		this.juego = juego;
 		this.start();
 	}
 	

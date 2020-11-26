@@ -4,6 +4,7 @@ import java.util.Random;
 
 import GUI.gameGUI;
 import Grafico.GraficoAlpha;
+import Movimiento.Movimiento_vertical;
 import Movimiento.Movimiento_vertical_rapido;
 import Premio.Efecto_temporal;
 import Premio.Objeto_precioso;
@@ -29,7 +30,7 @@ public class Alpha extends Infectado {
 		}
 		valor = ran.nextInt(Mapa.LIMITE_DER_X);
 		this.grafico.setLocation(valor, Mapa.LIMITE_SUPERIOR);
-		this.velocidad = 5;
+		this.velocidad = 1;
 		this.letalidad = 25;
 	}
 
@@ -40,7 +41,7 @@ public class Alpha extends Infectado {
 			// lo eliminamos
 		} else {
 			if (carga_viral < 20) {
-				this.movimiento = new Movimiento_vertical_rapido(this);
+				this.movimiento = new Movimiento_vertical_rapido(this,Movimiento_vertical_rapido.ABAJO);
 			}
 		}
 	}

@@ -28,7 +28,7 @@ public class Beta extends Infectado {
 		}
 		valor = ran.nextInt(Mapa.LIMITE_DER_X);
 		this.grafico.setLocation(valor, Mapa.LIMITE_SUPERIOR);
-		this.velocidad = 7;
+		this.velocidad = 5;
 		this.letalidad = 10;
 	}
 

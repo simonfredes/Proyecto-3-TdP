@@ -7,8 +7,8 @@ import Logica.Entidad;
 // relentiza los oponentes
 public class Movimiento_vertical_premio_lento extends Movimiento_vertical {
 
-	public Movimiento_vertical_premio_lento(Entidad entidad) {
-		super(entidad);
+	public Movimiento_vertical_premio_lento(Entidad entidad,int direccion) {
+		super(entidad,direccion);
 		velocidad_extra = 6;
 	}
 

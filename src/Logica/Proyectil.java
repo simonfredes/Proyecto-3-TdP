@@ -11,8 +11,8 @@ public abstract class Proyectil extends Entidad{
 	
 	public Proyectil(Grafico grafico) {
 		this.visitor = new Visitor_proyectil();
-		this.movimiento = new Movimiento_vertical(this);
 		this.grafico = new GraficoProyectilSanitario();
 		this.grafico.setLocation(grafico.getX()+ this.grafico.getAncho()/2 , grafico.getY() - this.grafico.getAlto()-2);
+		this.movimiento = new Movimiento_vertical(this,Movimiento_vertical.ARRIBA);
 	}
 }

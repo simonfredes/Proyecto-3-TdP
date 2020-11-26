@@ -4,6 +4,7 @@ import java.awt.Point;
 import java.util.Random;
 
 import Logica.Entidad;
+import Logica.Mapa;
 
 public abstract class Movimiento {
 	protected int direccion;
@@ -11,16 +12,21 @@ public abstract class Movimiento {
 	protected int velocidad_extra;
 	protected int duracion;
 	protected int limiteY;
+	
+	public static final int ARRIBA = -1;
+	public static final int ABAJO = 1;
+	
 
-	public Movimiento(Entidad e) {
+	public Movimiento(Entidad e, int direccion) {
 		this.entidad = e;
-		direccion = 1;
+		this.direccion = direccion;
 	}
 
 	public abstract void mover();
 
 	protected void mover_aux(Point p, double x, double y) {
-		if (y < entidad.getJuego().getPlayer().getGrafico().getY()) {
+
+		if (y < Mapa.LIMITE_INFERIOR) {
 			p.setLocation(x, y);
 			entidad.getGrafico().setLocation(p);
 		} else {
@@ -29,14 +35,14 @@ public abstract class Movimiento {
 	}
 
 	protected void setear_ubicacion_inicial(Point p) {
-		double y = 0;
+		double y = Mapa.LIMITE_SUPERIOR;
 		p.setLocation(get_x_random(), y);
 		entidad.getGrafico().setLocation(p);
 	}
 
 	protected double get_x_random() {
 		Random r = new Random();
-		double valor = r.nextInt(entidad.getJuego().getGui().getWidth());
+		double valor = r.nextInt(Mapa.LIMITE_DER_X);
 		return valor;
 	}
 }
