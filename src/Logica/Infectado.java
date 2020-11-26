@@ -14,23 +14,22 @@ public abstract class Infectado extends Personaje {
 	protected int cooldown; // duracion
 
 	public Infectado(Juego j) {
-		super(j);
 		this.carga_viral = 100;
 		this.movimiento = new Movimiento_vertical(this);
 		cooldown = 45;
-		int valor;
-		Random ran = new Random();
-		valor = ran.nextInt(3);
-		if (valor == 0) {
-			premio = new Efecto_temporal(j, this.grafico);
-		} else {
-			if (valor == 1) {
-				premio = new Objeto_precioso(j, this.grafico);
-			} else {
-				premio = null;
-			}
-		}
-		valor = ran.nextInt(gameGUI.LIMITE_DER_X);
+//		int valor;
+//		Random ran = new Random();
+//		valor = ran.nextInt(3);
+//		if (valor == 0) {
+//			premio = new Efecto_temporal(this.grafico);
+//		} else {
+//			if (valor == 1) {
+//				premio = new Objeto_precioso(this.grafico);
+//			} else {
+//				premio = null;
+//			}
+//		}
+//		valor = ran.nextInt(gameGUI.LIMITE_DER_X);
 //		this.grafico.setLocation(valor, gameGUI.LIMITE_SUPERIOR);
 		this.particula = null;
 	}
@@ -49,8 +48,8 @@ public abstract class Infectado extends Personaje {
 		movimiento.mover();
 	}
 
-	public void lanzar_particula() {
-
+	public Particula lanzar_particula() {
+		return new Particula(this.grafico);
 	}
 
 	@Override

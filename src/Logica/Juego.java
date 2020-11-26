@@ -20,7 +20,7 @@ public class Juego {
 
 	public Juego(gameGUI gui) {
 		this.map = new Mapa();
-		this.jugador = new Jugador(this);
+		this.jugador = new Jugador();
 		this.gui = gui;
 		this.juego_activo = true;
 		this.niveles = new Nivel[2];
@@ -65,5 +65,9 @@ public class Juego {
 
 	public Mapa getMap() {
 		return map;
+	}
+
+	public void generarDisparo(Proyectil disparo) {
+		this.gui.getLabelMapa().add(disparo.getGrafico());
 	}
 }

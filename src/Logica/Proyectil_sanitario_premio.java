@@ -1,12 +1,15 @@
 package Logica;
 
+import java.awt.Point;
+
+import Grafico.Grafico;
 import Grafico.GraficoProyectilSanitarioPremio;
 
 public class Proyectil_sanitario_premio extends Proyectil{
 	
 	//relentiza tambien
-	public Proyectil_sanitario_premio(Juego j) {
-		super(j);
+	public Proyectil_sanitario_premio(Grafico grafico) {
+		super(grafico);
 		this.grafico = new GraficoProyectilSanitarioPremio();
 		this.velocidad = 10;
 		this.cap_desinfeccion= 40;	

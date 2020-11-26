@@ -108,8 +108,11 @@ public class gameGUI extends JFrame {
 			@Override
 			public void keyTyped(KeyEvent e) {
 				switch (e.getKeyCode()) {
-				case KeyEvent.VK_X: {
+				case KeyEvent.VK_SPACE: {
 					juego.getPlayer().disparar();
+					//disparar de jugador tiene que retornar proyectil
+                    juego.generarDisparo(jugador.disparar());
+                    System.out.print("booludaso");
 					break;
 				}
 				}
@@ -133,6 +136,10 @@ public class gameGUI extends JFrame {
 
 	public int get_alto() {
 		return labelMapa.getHeight();
+	}
+	
+	public Mapa getLabelMapa() {
+		return labelMapa;
 	}
 
 	public int get_ancho() {

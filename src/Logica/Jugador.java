@@ -10,12 +10,11 @@ public class Jugador extends Personaje {
 	protected Arma arma; // conceptual
 	protected int limite_izq, limite_der;
 
-	public Jugador(Juego j) {
-		super(j);
+	public Jugador() {
 		this.visitor = new Visitor_jugador(this);
 		this.grafico = new GraficoJugador();
 		this.carga_viral = 0;
-		arma = new Arma(new Proyectil_sanitario(j));
+		arma = new Arma(new Proyectil_sanitario(this.grafico));
 		limite_der = gameGUI.LIMITE_DER_X - this.grafico.getAncho();
 		limite_izq = gameGUI.LIMITE_IZQ_X;
 		this.grafico.setLocation(limite_der / 2, gameGUI.LIMITE_INFERIOR - grafico.getAlto() - 10);
@@ -40,8 +39,8 @@ public class Jugador extends Personaje {
 		carga_viral += d;
 	}
 
-	public void disparar() {
-		arma.disparar();
+	public Proyectil disparar() {
+		return arma.disparar();
 	}
 
 	public void moverADerecha() {

@@ -2,12 +2,11 @@ package Premio;
 
 import Grafico.Grafico;
 import Grafico.GraficoPremio;
-import Logica.Juego;
 
 public class Efecto_temporal extends Premio {
 
-	public Efecto_temporal(Juego j, Grafico grafico) {
-		super(j,grafico);
+	public Efecto_temporal(Grafico grafico) {
+		super(grafico);
 		this.grafico = new GraficoPremio();
 		this.velocidad = 10;
 	}

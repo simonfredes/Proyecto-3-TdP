@@ -2,12 +2,11 @@ package Premio;
 
 import Grafico.Grafico;
 import Grafico.GraficoPremio;
-import Logica.Juego;
 
 public class Objeto_precioso extends Premio{
 
-	public Objeto_precioso(Juego j,Grafico grafico) {
-		super(j,grafico);
+	public Objeto_precioso(Grafico grafico) {
+		super(grafico);
 		this.grafico = new GraficoPremio();
 		this.velocidad = 30;
 	}

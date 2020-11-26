@@ -16,9 +16,10 @@ public abstract class Entidad {
 //	protected Point posicion;
 	protected int velocidad;
 
-	public Entidad(Juego j) {
-		this.juego = j;
-	}
+//	public Entidad(Point posicion) {
+////		this.juego = j;
+//		this.grafico.setLocation(posicion);
+//	}
 
 	public void setImagen(Grafico i) {
 		grafico = i;

@@ -1,23 +1,19 @@
 package Premio;
 
 import Grafico.Grafico;
+import Grafico.GraficoPremio;
 import Logica.Entidad;
-import Logica.Infectado;
-import Logica.Juego;
 import Movimiento.Movimiento_vertical_rapido;
 import Visitor.Visitor_premio;
 
 public abstract class Premio extends Entidad {
 
-	protected Infectado infectado;
-
-	public Premio(Juego j, Grafico grafico) {
-		super(j);
+	public Premio(Grafico grafico) {
 		this.visitor = new Visitor_premio();
-//		this.grafico.setLocation(grafico.getLocation()); 
+		this.grafico = new GraficoPremio();
+		this.grafico.setLocation(grafico.getX()/*+ this.grafico.getAncho()/2*/, grafico.getY()/* + this.grafico.getAlto()+2*/); 
 		this.movimiento = new Movimiento_vertical_rapido(this);
 	}
 
 	public abstract Premio getPremio();
-
 }
