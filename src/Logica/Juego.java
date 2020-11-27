@@ -109,20 +109,13 @@ public class Juego implements Runnable {
 			if (ganoJuego()) {
 				juego_activo = false;
 			}
-			
+
 			for (Entidad e : entidadesActivas) {
 				e.accionar();
 			}
-			for (Entidad e : entidadesEliminar) {
-				mapa.eliminar_Grafico(e.getGrafico()); // de mapa
-				entidadesEliminar.remove(e);
-			}
 
-			for (Entidad e : entidadesInsertar) {
-				entidadesActivas.add(e);
-			}
 			// this.entidadesInsertar = new LinkedList<Entidad>();
-			
+
 		}
 		mapa.repaint();
 	}
@@ -143,13 +136,22 @@ public class Juego implements Runnable {
 		// TODO Auto-generated method stub
 		while (juego_activo) {
 			this.accionar();
-		}
-		this.mapa.repaint();
-		try {
-			Thread.sleep(70);
-		} catch (InterruptedException ex) {
+			for (Entidad e : entidadesEliminar) {
+				mapa.eliminar_Grafico(e.getGrafico()); // de mapa
+				entidadesEliminar.remove(e);
+			}
+			for (Entidad e : entidadesInsertar) {
+				entidadesActivas.add(e);
+				mapa.insertarGrafico(e.getGrafico());
+			}
+			this.mapa.repaint();
+			try {
+				Thread.sleep(70);
+			} catch (InterruptedException ex) {
 
+			}
 		}
+	
 	}
 
 }
