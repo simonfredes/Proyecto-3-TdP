@@ -24,7 +24,7 @@ public abstract class Movimiento {
 
 	public abstract void mover();
 
-	protected void mover_aux(Point p, double x, double y) {
+	protected void mover_aux_abajo(Point p, double x, double y) {
 
 		if (y < Mapa.LIMITE_INFERIOR) {
 			p.setLocation(x, y);
@@ -33,12 +33,28 @@ public abstract class Movimiento {
 			setear_ubicacion_inicial(p);
 		}
 	}
+	
+	// !!
+	protected void mover_aux_arriba(Point p, double x, double y) {
+
+		if (y < Mapa.LIMITE_SUPERIOR) {
+			p.setLocation(x, y);
+			entidad.getGrafico().setLocation(p);
+		} else {
+			setear_ubicacion_inicial(p);
+		}
+	}
+	
+	
 
 	protected void setear_ubicacion_inicial(Point p) {
 		double y = Mapa.LIMITE_SUPERIOR;
 		p.setLocation(get_x_random(), y);
 		entidad.getGrafico().setLocation(p);
-	}
+	}	
+	
+	
+	
 
 	protected double get_x_random() {
 		Random r = new Random();

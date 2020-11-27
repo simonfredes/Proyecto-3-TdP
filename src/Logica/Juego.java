@@ -109,6 +109,10 @@ public class Juego implements Runnable {
 			if (ganoJuego()) {
 				juego_activo = false;
 			}
+			
+			for (Entidad e : entidadesActivas) {
+				e.accionar();
+			}
 			for (Entidad e : entidadesEliminar) {
 				mapa.eliminar_Grafico(e.getGrafico()); // de mapa
 				entidadesEliminar.remove(e);
@@ -117,11 +121,8 @@ public class Juego implements Runnable {
 			for (Entidad e : entidadesInsertar) {
 				entidadesActivas.add(e);
 			}
-			//this.entidadesInsertar = new LinkedList<Entidad>();
-
-		for (Entidad e : entidadesActivas) {
-				e.accionar();
-			}
+			// this.entidadesInsertar = new LinkedList<Entidad>();
+			
 		}
 		mapa.repaint();
 	}

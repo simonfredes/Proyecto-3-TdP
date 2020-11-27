@@ -20,7 +20,7 @@ public abstract class Entidad {
 ////		this.juego = j;
 //		this.grafico.setLocation(posicion);
 //	}
-
+	
 	public void setImagen(Grafico i) {
 		grafico = i;
 	}

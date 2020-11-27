@@ -61,24 +61,19 @@ public class gameGUI extends JFrame {
 			@Override
 			public void keyPressed(KeyEvent e) {
 				Point posJugador = juego.getPlayer().getPosicion();
-
-				switch (e.getKeyCode()) {
-				case KeyEvent.VK_LEFT: {
+				
+				if (e.getKeyCode() == KeyEvent.VK_LEFT) {
 					juego.getPlayer().moverAIzquierda();
-					break;
 				}
-				case KeyEvent.VK_RIGHT: {
+				if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
 					juego.getPlayer().moverADerecha();
-					break;
 				}
-				case KeyEvent.VK_SPACE: {
+				
+				if (e.getKeyCode() == KeyEvent.VK_SPACE) {
 					System.out.println("keo");
-					juego.getPlayer().disparar();
 					//disparar de jugador tiene que retornar proyectil
                     juego.generarDisparo(jugador.disparar());
                     System.out.print("as");
-					break;
-				}
 				}
 				posJugador.setLocation(juego.getPlayer().get_x(), juego.getPlayer().get_y());
 				grafico_jugador.setLocation(posJugador);
